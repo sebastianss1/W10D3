@@ -10,31 +10,27 @@ class Tile extends React.Component {
         }
 
         this.clickTile = this.clickTile.bind(this)
-        this.altClickTile = this.altClickTile.bind(this)
     }
 
     clickTile(e) {
         e.preventDefault(); 
-
+        let flagging = null; 
         const currTile = this.props.tile;
-        currTile.explore();
-        // debugger
-        if (currTile.explored && !currTile.bombed) {
-            // debugger
-            if (currTile.adjacentBombCount()) {
-                // debugger
-                this.setState({ text: currTile.adjacentBombCount() })
+        if (e.altKey) {
+            flagging = true;
+            this.setState({ text: '\u{1F6A9}' })
+        } else {
+            flagging = false;
+            if (currTile.explored && !currTile.bombed) {
+                if (currTile.adjacentBombCount()) {
+                    this.setState({ text: currTile.adjacentBombCount() })
+                }
+                flagging = false;
+            } else if (currTile.explored && currTile.bombed) {
+                this.setState({ text: '\u{1F4A3}' })
             }
-        } else if (currTile.explored && currTile.bombed) {
-            this.setState({ text: '\u{1F4A3}' })
-            currTile.board.lost();
         }
-
-        this.props.updateGame();
-    }
-
-    altClickTile(e) {
-        // debugger;
+        this.props.updateGame(currTile, flagging);
     }
     
     render() {

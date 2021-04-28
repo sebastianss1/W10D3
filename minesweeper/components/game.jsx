@@ -14,8 +14,19 @@ class Game extends React.Component {
     this.updateGame.bind(this);
   }
 
-  updateGame() {
-    console.log("hello")
+  updateGame(tile, flagging) {
+    if (flagging) {
+      tile.toggleFlag()
+    } else {
+      tile.explore();
+      if (tile.explored && !tile.bombed) {
+        if (tile.adjacentBombCount()) {
+        }
+      } else if (tile.explored && tile.bombed) {
+        tile.board.lost();
+      }
+    }
+    
   }
 
   render() {
