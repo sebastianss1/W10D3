@@ -1,1 +1,82 @@
 /* PHASE 12: Modal */
+
+.modal {
+    position: relative;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 500px;
+    z-index: 3;
+    margin: 0 auto;
+    border-radius: 6px;
+  
+}
+
+.modal-form h2 {
+    font-size: 50px;
+    color: black;
+}
+
+.modal-form p {
+    font-size: 24px;
+    color: black;
+
+}
+
+.modal-screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.submit {
+  margin: 20px 0 0 0;
+  padding: 0 0 3px 0;
+}
+
+.submit > button {
+  position: relative;
+  padding: 10px 20px;
+  color: #fff;
+  background: #0c0;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+.submit > button:hover {
+  background: #0b0;
+}
+
+.submit > button:active {
+  top: 3px;
+  background: #0a0;
+  box-shadow: none;
+}
+
+.input {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+
+}
+
+.input > label {
+  display: block;
+  font-weight: 700;
+  padding: 0 0 5px 0;
+}
