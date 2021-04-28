@@ -7,9 +7,6 @@ class Board extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-
-        }
     }
 
     render() {
@@ -22,7 +19,7 @@ class Board extends React.Component {
                         {row.map((tile, i) => {
                             // debugger
                             return (
-                            <Tile key={i} tile={tile} updateGame={this.props.updateGame} />
+                                <Tile key={i} tile={tile} updateGame={this.props.updateGame} />
                             )
                         })}
                     </div>

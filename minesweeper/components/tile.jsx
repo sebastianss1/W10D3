@@ -5,10 +5,6 @@ class Tile extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            text: ''
-        }
-
         this.clickTile = this.clickTile.bind(this)
     }
 
@@ -18,26 +14,29 @@ class Tile extends React.Component {
         const currTile = this.props.tile;
         if (e.altKey) {
             flagging = true;
-            this.setState({ text: '\u{1F6A9}' })
         } else {
             flagging = false;
-            if (currTile.explored && !currTile.bombed) {
-                if (currTile.adjacentBombCount()) {
-                    this.setState({ text: currTile.adjacentBombCount() })
-                }
-                flagging = false;
-            } else if (currTile.explored && currTile.bombed) {
-                this.setState({ text: '\u{1F4A3}' })
-            }
         }
         this.props.updateGame(currTile, flagging);
     }
     
+    
     render() {
         let currTile = this.props.tile;
+        let text = "";
+        if (currTile.explored && !currTile.bombed) {
+            if (currTile.adjacentBombCount()) {
+                text = currTile.adjacentBombCount();
+            }
+        } else if (currTile.explored && currTile.bombed) {
+            text = '\u{1F4A3}';
+        } else if (currTile.flagged) {
+            text = '\u{1F6A9}';
+        }
+
         return(
             <div className={currTile.explored ? "tile revealed" : "tile"} onClick={ this.clickTile }>
-                {this.state.text}
+                {text}
             </div>
         );
     }
