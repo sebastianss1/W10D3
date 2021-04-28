@@ -18,7 +18,6 @@ class Game extends React.Component {
     console.log("hello")
   }
 
-
   render() {
     return (
       <Board board={this.state.board} updateGame={this.updateGame}/>
