@@ -14,6 +14,7 @@ class Game extends React.Component {
   }
 
   updateGame() {
+    console.log("hello")
 
   }
 
@@ -21,10 +22,9 @@ class Game extends React.Component {
   render() {
     return (
       <Board board={this.state.board} updateGame={this.updateGame}/>
-
     )
-
-
   }
 
 }
+
+export default Game;
