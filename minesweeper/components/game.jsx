@@ -1,12 +1,13 @@
 import React from 'react';
-import { Tile, Board } from '../minesweeper';
+import { Board as MSBoard } from '../minesweeper';
+import Board from './board';
 
 class Game extends React.Component {
   constructor() {
     super()
     
     this.state = {
-      board: new Board()
+      board: new MSBoard(10, 2)
   
     }
 
@@ -15,7 +16,6 @@ class Game extends React.Component {
 
   updateGame() {
     console.log("hello")
-
   }
 
 

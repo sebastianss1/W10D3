@@ -16,11 +16,17 @@ class Board extends React.Component {
         return (
             <div>
                 {this.props.board.grid.map((row, idx) => {
-                    return <div>
+                    // debugger
+                    return (
+                    <div key={idx}>
                         {row.map((tile, i) => {
-                            <Tile tile={tile} updateGame={this.props.updateGame} />
+                            // debugger
+                            return (
+                            <Tile key={i} tile={tile} updateGame={this.props.updateGame} />
+                            )
                         })}
                     </div>
+                    )
                 }) }
             </div>
         )
