@@ -14,11 +14,11 @@ class Board extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="board">
                 {this.props.board.grid.map((row, idx) => {
                     // debugger
                     return (
-                    <div key={idx}>
+                    <div className="row" key={idx}>
                         {row.map((tile, i) => {
                             // debugger
                             return (

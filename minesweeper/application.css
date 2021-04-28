@@ -1,0 +1,15 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.tile {
+    background-color: lightgray;
+    border: 1px solid black; 
+    width: 35px;
+    height: 35px;
+}

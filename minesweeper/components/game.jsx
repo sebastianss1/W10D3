@@ -7,7 +7,7 @@ class Game extends React.Component {
     super()
     
     this.state = {
-      board: new MSBoard(10, 2)
+      board: new MSBoard(10, 10)
   
     }
 
